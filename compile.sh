@@ -2,11 +2,11 @@
 
 javac -d classes -classpath .:classes src/Hello.java;
 
-jar cvf lib/Hello.jar classes/Hello.class;
+(cd classes/; bash create_HelloJar.sh)
 
 javac -d classes -classpath .:classes src/HelloImpl.java;
 
-jar cvf lib/HelloImpl.jar classes/HelloImpl.class;
+(cd classes/; bash create_HelloImplJar.sh)
 
 javac -d classes -cp .:classes:lib/Hello.jar:lib/HelloImpl.jar src/HelloServer.java;
 
