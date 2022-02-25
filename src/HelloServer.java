@@ -16,7 +16,7 @@ public class HelloServer {
 		Hello2 h_stub2 = (Hello2) UnicastRemoteObject.exportObject(h2, 0);
 
 	    // Register the remote object in RMI registry with a given identifier
-	    Registry registry= LocateRegistry.createRegistry(1099);
+	    Registry registry= LocateRegistry.getRegistry();
 	    registry.rebind("HelloService", h_stub);
 		registry.rebind("HelloService2", h_stub2);
 		registry.rebind("RegistryService", r_stub);
