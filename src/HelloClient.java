@@ -10,13 +10,15 @@ public class HelloClient {
 	   return;}
 
 	String host = args[0];
+	  String name = args[1];
 
 	// Get remote object reference
 	Registry registry = LocateRegistry.getRegistry(host); 
 	Hello h = (Hello) registry.lookup("HelloService");
 
 	// Remote method invocation
-	String res = h.sayHello();
+		InfoImpl i = new InfoImpl(name);
+	String res = h.sayHello(name);
 	System.out.println(res);
 
 	} catch (Exception e)  {
