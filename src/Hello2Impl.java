@@ -11,10 +11,10 @@ public class Hello2Impl implements Hello2{
 
     @Override
     public String sayHello(Accounting_itf a) throws RemoteException {
-        if(registry.ListClient.contains(a)){
-            InfoImpl c = (InfoImpl) a;
-            c.newCall();
-            return c.getName()+": "+message;
+        String name = ((InfoImpl)a).getName();
+        if(registry.ListClient.contains(name)){
+            ((InfoImpl) a).newCall();
+            return ((InfoImpl) a).getName()+": "+message;
         }else{
             System.out.println("Ce client n'est pas enregistré !");
             return null;

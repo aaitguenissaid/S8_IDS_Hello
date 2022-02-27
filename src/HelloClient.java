@@ -28,6 +28,11 @@ public class HelloClient {
 	String res2 = h2.sayHello(i);
 	System.out.println(res2);
 
+	for(int j=0; j < 10; j++){
+		res2 = h2.sayHello(i);
+		System.out.println(res2);
+	}
+
 	} catch (Exception e)  {
 		System.err.println("Error on client: " + e);
 	}

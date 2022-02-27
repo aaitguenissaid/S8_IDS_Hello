@@ -1,4 +1,6 @@
 #!/bin/bash
+rm classes/*.class;
+rm lib/*.jar;
 #Accounting_itf
 javac -d classes -classpath .:classes src/Accounting_itf.java;
 cd classes;

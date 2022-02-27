@@ -3,7 +3,7 @@ import java.rmi.RemoteException;
 
 public class InfoImpl implements Info_itf, Accounting_itf, Serializable {
     private String clientName;
-    private int nbCall;
+    int nbCall;
 
     public InfoImpl(String n){
         clientName = n;
@@ -17,14 +17,15 @@ public class InfoImpl implements Info_itf, Accounting_itf, Serializable {
 
     @Override
     public void numberOfCalls(int number) throws RemoteException {
-        System.out.println(this.clientName+" a appelé "+this.nbCall+" fois sayHello");
+        System.out.println(this.clientName+" a appelé "+number+" fois sayHello");
     }
 
     public void newCall() {
-        this.nbCall++;
-        if((nbCall%10) == 0){
+        System.out.println("Salut" + this.nbCall);
+        this.nbCall = this.nbCall + 1;
+        if(true){
             try {
-                numberOfCalls(nbCall);
+                numberOfCalls(this.nbCall);
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
